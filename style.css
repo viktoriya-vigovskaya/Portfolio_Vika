@@ -1,0 +1,448 @@
+/* Fargepalett og grunnstil */
+:root {
+  --bg-color: #0f0f0f;
+  --text-color: #ffffff;
+  --accent-color: #b497f5;
+  --highlight-color: #f5f0e1;
+  --bg: #121214;
+  --bg-alt: #1a1b1f;
+  --card: #1d1e22;
+  --text: var(--text-color);
+  --muted: #c3c3c8;
+  --accent: var(--accent-color);
+  --border: #2a2b31;
+  --shadow: 0 16px 36px rgba(180, 150, 245, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Segoe UI", Arial, sans-serif;
+  color: var(--text-color);
+  background: linear-gradient(135deg, #0f0f0f 0%, var(--bg) 50%, var(--bg-alt) 100%);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Myk fade-in ved scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+p,
+li,
+.muted {
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.25s ease-in-out, transform 0.25s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  transform: translateY(-2px);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+main {
+  background-image: url("./Images/6745.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+  text-align: left;
+  background-image: url("./Images/7694.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text-color);
+  font-family: "SN Pro", "Nunito", "Segoe UI", Arial, sans-serif;
+  filter: brightness(0.9);
+}
+
+/* Myke overganger mellom seksjoner */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem 3rem;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transform: translateX(-40px);
+}
+
+.hero-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(180, 150, 245, 0.6);
+  margin: 0 auto 1.2rem;
+}
+
+.hero-content h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.hero-nav {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: flex-start;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  background: rgba(180, 150, 245, 0.2);
+  border: 1px solid rgba(180, 150, 245, 0.55);
+  color: var(--text-color);
+  font-weight: 600;
+  transition: transform 0.25s ease-in-out, background 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+  background: rgba(180, 150, 245, 0.35);
+  border-color: rgba(180, 150, 245, 0.8);
+}
+
+
+/* Header */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-placeholder {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-alt);
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.brand-text p {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.nav-list a.active {
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.2rem;
+}
+
+/* Seksjoner */
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+/* Ferdigheter - semi-transparent bakgrunn kun for kortene */
+#ferdigheter .card {
+  background: rgba(29, 30, 34, 0.65);
+}
+
+main section.section-alt:not(#om) {
+  background: transparent;
+}
+
+/* Bakgrunnsbilde for alle seksjoner unntatt Portfolio (hero) og Om meg */
+main section:not(#om) {
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: transparent;
+}
+
+/* Programmer og verktøy */
+#verktoy {
+  background-image: none;
+  background-color: transparent;
+}
+
+#verktoy .tool-placeholder {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+#verktoy .tool-placeholder:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Om meg bakgrunnsbilde */
+#om {
+  position: relative;
+  background-image: url("./Images/3233.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* Bakgrunnsbilder for alle seksjoner unntatt Portfolio (hero) og Om meg */
+
+/* Programmer og verktøy */
+
+/* Om meg bakgrunnsbilde */
+#om {
+  position: relative;
+  background-image: none;
+  background-color: transparent;
+}
+
+/* Om meg */
+.about-card {
+  margin-top: 1.5rem;
+  background: rgba(15, 16, 20, 0.65);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.8rem;
+  box-shadow: none;
+  color: var(--text-color);
+}
+
+.about-card h2 {
+  color: var(--accent);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow), 0 0 28px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--accent);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tool-placeholder {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 1.2rem;
+  text-align: center;
+  color: var(--muted);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.tool-placeholder:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+.tool-clear {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.tool-clear:hover {
+  border-color: transparent;
+}
+
+.tool-glow {
+  filter: drop-shadow(0 0 10px rgba(180, 150, 245, 0.45));
+  transition: transform 0.25s ease-in-out, filter 0.25s ease-in-out;
+}
+
+.tool-icon {
+  width: 80px;
+  height: auto;
+}
+
+.tool-clear:hover .tool-glow {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px rgba(180, 150, 245, 0.6));
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.list li {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 0 22px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease-in-out, border-color 0.25s ease-in-out;
+}
+
+.list li:hover {
+  transform: translateX(6px);
+  border-color: var(--accent);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: var(--muted);
+}
+
+/* Responsiv */
+@media (max-width: 900px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    transform: none;
+    text-align: center;
+  }
+
+  .nav-list {
+    gap: 0.8rem;
+  }
+}
