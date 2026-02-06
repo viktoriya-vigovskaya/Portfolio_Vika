@@ -393,6 +393,18 @@ main section:not(#om) {
   height: auto;
 }
 
+#verktoy .tool-icon {
+  width: min(720px, 96%);
+  height: auto;
+  margin: -12px 0 0;
+  display: block;
+  justify-self: start;
+}
+
+#verktoy .tool-icon-right {
+  justify-self: end;
+}
+
 .tool-clear:hover .tool-glow {
   transform: scale(1.05);
   filter: drop-shadow(0 0 14px rgba(180, 150, 245, 0.6));
@@ -419,6 +431,35 @@ main section:not(#om) {
   transform: translateX(6px);
   border-color: var(--accent);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Kontakt */
+.contact-card {
+  margin-top: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 820px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.contact-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0.6rem 1.2rem;
+}
+
+.contact-list p {
+  margin: 0;
+}
+
+#kontakt h2 {
+  text-align: center;
 }
 
 /* Footer */

@@ -76,6 +76,9 @@
       <section id="verktoy" class="section">
         <div class="container">
           <h2>Programmer og verktøy</h2>
+          <p class="muted">
+            Dette området er klart for å fylle inn programmer og ikoner senere.
+          </p>
           <div class="tools-grid">
             <img class="tool-icon" src="./Images/098.PNG" alt="Programmer og verktÃ¸y" />
           </div>
@@ -170,4 +173,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
