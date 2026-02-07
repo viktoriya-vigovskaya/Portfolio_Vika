@@ -53,3 +53,20 @@ revealItems.forEach((item) => {
   item.classList.add("reveal");
   observer.observe(item);
 });
+
+// Animer ferdighetsnivÃ¥ i Programmer og verktÃ¸y nÃ¥r seksjonen kommer i view
+const skillsList = document.querySelector(".skills-list");
+if (skillsList) {
+  const skillsObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  skillsObserver.observe(skillsList);
+}
