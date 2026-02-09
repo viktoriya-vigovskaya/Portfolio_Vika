@@ -170,6 +170,30 @@ main {
   filter: brightness(0.9);
 }
 
+.bat-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 72px;
+  height: 40px;
+  background-image: url("./Images/bat-cursor.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease, transform 0.08s ease-out;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+  z-index: 1000;
+}
+
+@media (pointer: coarse) {
+  .bat-cursor {
+    display: none;
+  }
+}
+
 /* Myke overganger mellom seksjoner */
 
 .hero-overlay {

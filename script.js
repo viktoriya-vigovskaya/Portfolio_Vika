@@ -100,3 +100,46 @@ if (skillsList) {
   );
   skillsObserver.observe(skillsList);
 }
+
+// Flyvende mus pÃ¥ hele siden
+const batCursor = document.querySelector(".bat-cursor");
+if (batCursor) {
+  let rafId = null;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+  let isVisible = false;
+
+  const moveBat = () => {
+    const ease = 0.18;
+    currentX += (targetX - currentX) * ease;
+    currentY += (targetY - currentY) * ease;
+    batCursor.style.left = `${currentX}px`;
+    batCursor.style.top = `${currentY}px`;
+    rafId = requestAnimationFrame(moveBat);
+  };
+
+  document.addEventListener("mousemove", (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    if (!isVisible) {
+      currentX = targetX;
+      currentY = targetY;
+      batCursor.style.opacity = "1";
+      isVisible = true;
+      if (!rafId) {
+        rafId = requestAnimationFrame(moveBat);
+      }
+    }
+  });
+
+  document.addEventListener("mouseleave", () => {
+    batCursor.style.opacity = "0";
+    isVisible = false;
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  });
+}
