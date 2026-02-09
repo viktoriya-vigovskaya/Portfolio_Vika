@@ -673,6 +673,16 @@ main section {
   margin-top: 2rem;
 }
 
+.carousel-title {
+  margin: 0 0 0.8rem;
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  font-family: "Libre Baskerville", "SN Pro", "Nunito", "Segoe UI", Arial, sans-serif;
+}
+
 
 .card h3 {
   margin-top: 0;
