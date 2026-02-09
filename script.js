@@ -54,6 +54,36 @@ revealItems.forEach((item) => {
   observer.observe(item);
 });
 
+// Enkel bildekarrusell for Prosjekter
+const carousels = document.querySelectorAll("[data-carousel]");
+carousels.forEach((carousel) => {
+  const images = Array.from(carousel.querySelectorAll(".carousel-img"));
+  const prevBtn = carousel.querySelector(".carousel-btn.prev");
+  const nextBtn = carousel.querySelector(".carousel-btn.next");
+  if (images.length === 0 || !prevBtn || !nextBtn) {
+    return;
+  }
+
+  let index = 0;
+  let backIndex = images.length - 1;
+
+  const render = (newIndex, prevIndex = backIndex) => {
+    index = (newIndex + images.length) % images.length;
+    backIndex = prevIndex;
+
+    images.forEach((img) => img.classList.remove("is-active", "is-back"));
+    images[index].classList.add("is-active");
+    if (images.length > 1) {
+      images[backIndex].classList.add("is-back");
+    }
+  };
+
+  render(0, backIndex);
+
+  prevBtn.addEventListener("click", () => render(index - 1, index));
+  nextBtn.addEventListener("click", () => render(index + 1, index));
+});
+
 // Animer ferdighetsnivÃ¥ i Programmer og verktÃ¸y nÃ¥r seksjonen kommer i view
 const skillsList = document.querySelector(".skills-list");
 if (skillsList) {
