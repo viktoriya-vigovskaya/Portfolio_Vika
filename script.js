@@ -101,6 +101,28 @@ if (skillsList) {
   skillsObserver.observe(skillsList);
 }
 
+// YouTube embed med egen forside (uten synlig YouTube-UI)
+const videoEmbeds = document.querySelectorAll(".video-embed");
+videoEmbeds.forEach((wrapper) => {
+  const videoId = wrapper.dataset.videoId;
+  const cover = wrapper.querySelector(".video-cover");
+  if (!videoId || !cover) {
+    return;
+  }
+
+  cover.addEventListener("click", () => {
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1&controls=1&color=white&iv_load_policy=3`;
+    iframe.title = "Video";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.allowFullscreen = true;
+    wrapper.innerHTML = "";
+    wrapper.appendChild(iframe);
+  });
+});
+
 // Flyvende mus pÃ¥ hele siden
 const batCursor = document.querySelector(".bat-cursor");
 if (batCursor) {
